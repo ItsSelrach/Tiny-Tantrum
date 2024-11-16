@@ -6,41 +6,40 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class Character1 extends Entity {
+public class Character2 extends Entity {
     public BufferedImage leftImage;
     public BufferedImage rightImage;
     public String direction = "right"; // Default direction
 
-    public Character1() {
-        this.x = 100; // Initial position
+    public Character2() {
+        this.x = 200; // Initial position
         this.y = 300; // Initial position
         loadImages(); // Load images during construction
     }
 
     private void loadImages() {
         try {
-            leftImage = ImageIO.read(new File("C:/Users/User/Desktop/Tiny Tantrum/src/player1/character1-left(standing).png"));
-            rightImage = ImageIO.read(new File("C:/Users/User/Desktop/Tiny Tantrum/src/player1/character1-right(standing).png"));
+            leftImage = ImageIO.read(new File("C:/Users/User/Desktop/Tiny Tantrum/src/player1/character2-left(standing).png"));
+            rightImage = ImageIO.read(new File("C:/Users/User/Desktop/Tiny Tantrum/src/player1/character2-right(standing).png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void draw(Graphics2D g2) {
-        BufferedImage character1 = null;
-        
+        BufferedImage character2 = null;
+
         switch (direction) {
             case "left":
-                character1 = leftA1;
+                character2 = leftB1;
                 break;
             case "right":
-                character1 = rightA1;
+                character2 = rightB1;
                 break;
-                
         }
 
-        if (character1 != null) {
-            g2.drawImage(character1, x, y, null);
+        if (character2 != null) {
+            g2.drawImage(character2, x, y, null);
         }
     }
 }

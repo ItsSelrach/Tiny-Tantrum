@@ -8,7 +8,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-import entity.Character1;
+import entity.CharacterMovement;
 
 public class GamePanel extends JPanel implements Runnable{
         //set screen/object sizes
@@ -24,16 +24,16 @@ public class GamePanel extends JPanel implements Runnable{
         Color c =(Color.black);
         Thread gameThread;
         KeybInput keyIn = new KeybInput();
-        Character1 player1 = new Character1(this, keyIn);
-        Character1 player2 = new Character1(this, keyIn);
+        CharacterMovement player1 = new CharacterMovement(this, keyIn);
+        CharacterMovement player2 = new CharacterMovement(this, keyIn);
 
         //set player
         int player1X = 20;
         int player1Y = 20;
         int player1Speed = 5;
+        
 
         int FPS = 60;
-
 
         //game panel
         public GamePanel() {
