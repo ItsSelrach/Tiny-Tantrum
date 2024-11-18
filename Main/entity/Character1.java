@@ -43,4 +43,5 @@ public class Character1 extends Entity {
             g2.drawImage(character1, x, y, null);
         }
     }
+
 }

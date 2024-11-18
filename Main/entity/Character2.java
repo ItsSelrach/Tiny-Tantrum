@@ -12,10 +12,14 @@ public class Character2 extends Entity {
     public String direction = "right"; // Default direction
 
     public Character2() {
+        
         this.x = 200; // Initial position
         this.y = 300; // Initial position
         loadImages(); // Load images during construction
+        
     }
+
+    
 
     private void loadImages() {
         try {

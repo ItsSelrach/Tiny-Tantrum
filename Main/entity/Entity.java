@@ -14,7 +14,8 @@ public class Entity {
     public int jumping;
 
     public BufferedImage leftA1, rightA1, leftB1, rightB1;
-    public  String direction;
+    public String direction;
+    public boolean canSwitch;
     public void paintComponent(Graphics g) {
     
     }

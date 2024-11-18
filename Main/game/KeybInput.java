@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class KeybInput implements KeyListener {
 
-    public boolean aPressed, dPressed, spacePressed, tabPressed; 
+    public boolean aPressed, dPressed, spacePressed, shiftPressed; 
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -20,8 +20,9 @@ public class KeybInput implements KeyListener {
         if(code == KeyEvent.VK_SPACE ){
             spacePressed = true;
         }
-        if(code == KeyEvent.VK_TAB) {
-            tabPressed = true;
+        if(code == KeyEvent.VK_SHIFT) {
+            shiftPressed = true;
+            System.out.println("shift key pressed"); // Debug statement
         }
         
 
@@ -40,8 +41,8 @@ public class KeybInput implements KeyListener {
         if(code == KeyEvent.VK_SPACE ){
             spacePressed = false;
         }
-        if(code == KeyEvent.VK_TAB) {
-            tabPressed = false;
+        if(code == KeyEvent.VK_SHIFT) {
+            shiftPressed = false;
         }
 
     }

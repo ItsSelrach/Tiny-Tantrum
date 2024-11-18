@@ -16,8 +16,8 @@ public class GamePanel extends JPanel implements Runnable{
         final int assetScale = 1;
 
         public final int gameTile = setGameAssetSize * assetScale;
-        final int maxColumnSize = 16;
-        final int maxRowSize = 32;
+        final int maxColumnSize = 8;
+        final int maxRowSize = 16;
         final int gameScreenWdth = gameTile * maxColumnSize;
         final int gameScreenHgth = gameTile * maxRowSize;
 
