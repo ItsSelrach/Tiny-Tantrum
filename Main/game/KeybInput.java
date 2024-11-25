@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class KeybInput implements KeyListener {
 
-    public boolean aPressed, dPressed, spacePressed, shiftPressed; 
+    public boolean aPressed, dPressed, wPressed, leftPressed, rightPressed, upPressed, shiftPressed; 
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -17,14 +17,22 @@ public class KeybInput implements KeyListener {
         if(code == KeyEvent.VK_D){
             dPressed = true;
         }
-        if(code == KeyEvent.VK_SPACE ){
-            spacePressed = true;
-        }
-        if(code == KeyEvent.VK_SHIFT) {
-            shiftPressed = true;
-            System.out.println("shift key pressed"); // Debug statement
+        if(code == KeyEvent.VK_W ){
+            wPressed = true;
         }
         
+        if(code == KeyEvent.VK_LEFT){
+            leftPressed = true;
+        }
+        if(code == KeyEvent.VK_RIGHT){
+            rightPressed = true;
+        }
+        if(code == KeyEvent.VK_UP ){
+            upPressed = true;
+        }
+        if(code == KeyEvent.VK_SHIFT){
+            shiftPressed = true;
+        }
 
     }
 
@@ -38,12 +46,23 @@ public class KeybInput implements KeyListener {
         if(code == KeyEvent.VK_D){
             dPressed = false;
         }
-        if(code == KeyEvent.VK_SPACE ){
-            spacePressed = false;
+        if(code == KeyEvent.VK_W ){
+            wPressed = false;
         }
-        if(code == KeyEvent.VK_SHIFT) {
+
+        if(code == KeyEvent.VK_LEFT){
+            leftPressed = false;
+        }
+        if(code == KeyEvent.VK_RIGHT){
+            rightPressed = false;
+        }
+        if(code == KeyEvent.VK_UP ){
+            upPressed = false;
+        }
+        if(code == KeyEvent.VK_SHIFT){
             shiftPressed = false;
         }
+
 
     }
 

@@ -9,17 +9,22 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import entity.CharacterMovement;
+import object.Block;
 
 public class GamePanel extends JPanel implements Runnable{
         //set screen/object sizes
         final int setGameAssetSize = 64;
         final int assetScale = 1;
+        public final int playerSizeX = 90;
+        public final int playerSizeY = 64;
 
         public final int gameTile = setGameAssetSize * assetScale;
-        final int maxColumnSize = 8;
-        final int maxRowSize = 16;
+        final int maxColumnSize = 16;
+        final int maxRowSize = 28;
         final int gameScreenWdth = gameTile * maxColumnSize;
         final int gameScreenHgth = gameTile * maxRowSize;
+
+        Block blocks = new Block(this);
 
         Color c =(Color.black);
         Thread gameThread;
@@ -31,6 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
         int player1X = 20;
         int player1Y = 20;
         int player1Speed = 5;
+        
         
 
         int FPS = 60;
@@ -60,6 +66,7 @@ public class GamePanel extends JPanel implements Runnable{
             long currentTime;
             long timer = 0;
             int updateCount = 0;
+            
 
 
             while(gameThread != null) {
@@ -92,12 +99,15 @@ public class GamePanel extends JPanel implements Runnable{
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
+
+           // blocks.draw(g2);
         
             player1.draw(g2);
             player2.draw(g2);
             g.setColor(new Color(204, 255, 255)); // Set background color
             g.fillRect(0, 0, getWidth(), getHeight()); // Fill background
             player1.draw((Graphics2D) g); // Draw the player
+            
 
         }
     }        
