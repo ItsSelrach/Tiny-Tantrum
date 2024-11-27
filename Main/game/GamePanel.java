@@ -11,23 +11,21 @@ import javax.swing.JPanel;
 import entity.CharacterMovement;
 import game.level.LevelManager;
 
-
 public class GamePanel extends JPanel implements Runnable{
-        public int maxMap = 0;
         //set screen/object sizes
-        final int setGameAssetSize = 64;
-        final int assetScale = 1;
+        final static int setGameAssetSize = 64;
+        final static int assetScale = 1;
         public final int playerSizeX = 90;
         public final int playerSizeY = 64;
+
         private LevelManager levelManager;
 
-        public final int gameTile = setGameAssetSize * assetScale;
-        public int maxColumnSize = 16;
-        public int maxRowSize = 28;
-        final int gameScreenWdth = gameTile * maxColumnSize;
-        final int gameScreenHgth = gameTile * maxRowSize;
+        public static final int gameTile = setGameAssetSize * assetScale;
+        public static int maxColumnSize = 16;
+        public static int maxRowSize = 28;
+        public static final int gameScreenWdth = gameTile * maxColumnSize;
+        public static final int gameScreenHgth = gameTile * maxRowSize;
 
-    
 
         Color c =(Color.black);
         Thread gameThread;
@@ -46,24 +44,22 @@ public class GamePanel extends JPanel implements Runnable{
 
         //game panel
         public GamePanel() {
-
-            initClasses();
-
-            this.setPreferredSize(new Dimension(gameScreenWdth, gameScreenHgth));
+            this.setPreferredSize(new Dimension(gameScreenHgth, gameScreenWdth));
             this.setBackground(c);
             this.setDoubleBuffered(true);
             this.addKeyListener(keyIn);
             this.setFocusable(true);
-
-        }
-        public void startGameTread() {
-
-            gameThread = new Thread(this);
-            gameThread.start();
+            initClasses(); // Ensure this is called
         }
 
         public void initClasses() {
             levelManager = new LevelManager(this);
+        }
+
+        public void startGameTread() {
+
+            gameThread = new Thread(this);
+            gameThread.start();
         }
 
         //game loop
@@ -90,6 +86,7 @@ public class GamePanel extends JPanel implements Runnable{
                     update();
                     repaint();
                     remainingTime--;
+                    updateCount++;
                 }
                 if (timer >= 1000000000){
                     System.out.println("FPS: " + updateCount);
@@ -99,7 +96,6 @@ public class GamePanel extends JPanel implements Runnable{
             }
 
         }
-        
         public void update(){
             player1.update();
             player2.update();
@@ -108,19 +104,19 @@ public class GamePanel extends JPanel implements Runnable{
 
         //player character
         public void paintComponent(Graphics g) {
+            super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
-
+        
+            // Draw background first
             g.setColor(new Color(204, 255, 255)); // Set background color
             g.fillRect(0, 0, getWidth(), getHeight()); // Fill background
-
+        
+            // Then draw players and level
             levelManager.draw(g2);
             player1.draw(g2);
             player2.draw(g2);
             
-            
-
         }
-        
     }        
 
 
